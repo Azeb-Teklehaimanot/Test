@@ -8,46 +8,7 @@
     android:background="@color/colorPrimary"
     android:gravity="center"
     tools:context=".activity.MainActivity">
-    <!--    <androidx.cardview.widget.CardView-->
-    <!--        android:id="@+id/cardViewHeader"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="0dp"-->
-    <!--        android:layout_gravity="center"-->
-    <!--        android:layout_weight="1"-->
-    <!--        android:background="@color/colorPrimary">-->
 
-    <!--        <androidx.appcompat.widget.AppCompatImageView-->
-    <!--            android:layout_width="@dimen/_20sdp"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_gravity="center"-->
-    <!--            android:layout_marginHorizontal="6dp"-->
-    <!--            app:srcCompat="@drawable/flag_iceland" />-->
-
-    <!--        <LinearLayout-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="match_parent"-->
-    <!--            android:background="@color/colorPrimary"-->
-    <!--            android:gravity="center_horizontal|center_vertical"-->
-    <!--            android:orientation="horizontal">-->
-
-
-    <!--            <androidx.appcompat.widget.AppCompatImageView-->
-    <!--                android:layout_width="@dimen/_20sdp"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_gravity="bottom"-->
-    <!--                android:layout_marginHorizontal="6dp"-->
-    <!--                app:srcCompat="@drawable/flag_iceland" />-->
-
-
-    <!--            <androidx.appcompat.widget.AppCompatImageView-->
-    <!--                android:layout_width="@dimen/_20sdp"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_gravity="bottom"-->
-    <!--                android:layout_marginHorizontal="6dp"-->
-    <!--                app:srcCompat="@drawable/flag_iceland" />-->
-    <!--        </LinearLayout>-->
-
-    <!--    </androidx.cardview.widget.CardView>-->
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
@@ -59,14 +20,16 @@
         android:id="@+id/materialCardView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginBottom="-24dp"
         app:cardElevation="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view"
         app:shapeAppearanceOverlay="@style/ShapeAppearance.Card.TopLeftRight">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="18dp">
 
 
@@ -136,7 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="@string/enter_mobile_number"
+                    android:text="@string/confirm_your_mobile_number"
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/dots" />
@@ -145,11 +108,9 @@
                     android:id="@+id/code"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="38dp"
-                    android:text="Code"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/a_six_digit_number_is_sent_to"
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/enter_your_phone_number" />
 
@@ -165,53 +126,66 @@
                     app:layout_constraintStart_toEndOf="@+id/code"
                     app:layout_constraintTop_toBottomOf="@+id/enter_your_phone_number" />
 
-
-                <RelativeLayout
-                    android:id="@+id/relativeLayout"
+                <LinearLayout
+                    android:id="@+id/otp_view_linearLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginTop="6dp"
-                    android:background="@drawable/rounded_background"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+
                     android:gravity="center"
-                    android:padding="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/code">
 
-                    <com.hbb20.CountryCodePicker
-                        android:id="@+id/cpp"
+                    <com.chaos.view.PinView
+                        android:id="@+id/otp_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                        app:ccp_defaultNameCode="BG"
-                        app:ccp_showFlag="false"
-                        app:ccp_showNameCode="false" />
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:padding="0dp"
+                        android:textSize="16sp"
+                        app:itemCount="6"
+                        app:lineWidth="1dp"
+                        app:viewType="rectangle" />
 
-                    <View
-                        android:id="@+id/vLine"
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginHorizontal="8dp"
-                        android:layout_toEndOf="@id/cpp"
-                        android:background="@color/gray" />
+                </LinearLayout>
 
+                <TextView
+                    android:id="@+id/you_can_resend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/you_can_resend_the_code"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/otp_view_linearLayout" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/input_edt_text_phone"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginEnd="4dp"
-                        android:layout_toEndOf="@id/vLine"
-                        android:backgroundTint="@android:color/transparent"
-                        android:hint="@string/enter_mobile_number"
-                        android:inputType="phone"
-                        android:maxLength="10"
-                        android:maxLines="1" />
+                <TextView
+                    android:id="@+id/count_down"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/seconds"
+                    android:textAlignment="textEnd"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/you_can_resend"
+                    app:layout_constraintWidth_percent=".5" />
 
-
-                </RelativeLayout>
-
+                <TextView
+                    android:id="@+id/resend"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="@string/resend"
+                    android:textAlignment="textStart"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/count_down"
+                    app:layout_constraintTop_toBottomOf="@+id/you_can_resend"
+                    app:layout_constraintWidth_percent=".5" />
 
                 <Button
                     android:id="@+id/btn_continue"
@@ -225,7 +199,7 @@
                     android:textAllCaps="true"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toTopOf="@+id/btn_previous"
-                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/count_down"
                     app:layout_constraintVertical_bias="1.0"
                     tools:layout_editor_absoluteX="19dp" />
 
@@ -234,7 +208,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginBottom="80dp"
                     android:background="@drawable/button_color_selector"
                     android:enabled="false"
                     android:padding="10dp"
@@ -242,7 +215,8 @@
                     android:textAllCaps="true"
                     android:textColor="@color/white"
                     android:textSize="14sp"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_continue" />
+                    app:layout_constraintTop_toBottomOf="@+id/btn_continue"
+                    tools:layout_editor_absoluteX="0dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

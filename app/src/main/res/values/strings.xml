@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Test</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="login">Log in</string>
+    <string name="already_have_account">Already have account?</string>
+    <string name="enter_your_phone_number">Enter your phone number</string>
+    <string name="code">Code</string>
+    <string name="txt_continue">continue</string>
+    <string name="previous">Previous</string>
+    <string name="resend">Resend</string>
+    <string name="seconds">0:00s</string>
+    <string name="enter_mobile_number">Enter your mobile number</string>
+    <string name="you_can_resend_the_code">You can resend the code if it doesn\'t arrive in</string>
+    <string name="phone_placeholder">091234557</string>
+    <string name="a_six_digit_number_is_sent_to">A 6-digit code has been sent to</string>
+    <string name="confirm_your_mobile_number">Confirm your mobile number</string>
+    <string name="invalid_phone">Invalid phone number</string>
 </resources>
