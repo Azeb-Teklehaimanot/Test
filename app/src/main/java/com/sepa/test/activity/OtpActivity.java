@@ -20,6 +20,7 @@ import com.chaos.view.PinView;
 import com.sepa.test.R;
 import com.sepa.test.broadcast.SmsReceiver;
 
+//Developer : Azeb Teklehaimanot
 public class OtpActivity extends AppCompatActivity {
     private static final String TAG = OtpActivity.class.getSimpleName();
     private static final int PERMISSION_REQUEST_SMS = 123;
