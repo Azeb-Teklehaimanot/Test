@@ -30,7 +30,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="18dp">
+            android:layout_margin="8dp">
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,10 +41,9 @@
                     android:id="@+id/create_an_account"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:text="@string/create_an_account"
                     android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                     android:textStyle="bold"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,11 +62,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:layout_weight="1"
-
-
                         android:text="@string/already_have_account"
                         android:textAlignment="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
                     <TextView
                         android:id="@+id/login"
@@ -77,7 +74,7 @@
                         android:layout_marginTop="16dp"
                         android:layout_weight="1"
                         android:text="@string/login"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
                         android:textColor="@color/colorPrimary"
                         android:textStyle="bold" />
 
@@ -100,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="@string/confirm_your_mobile_number"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/dots" />
 
@@ -110,7 +107,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="@string/a_six_digit_number_is_sent_to"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textSize="14dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/enter_your_phone_number" />
 
@@ -131,8 +129,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
-
-                    android:gravity="center"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
                     app:layout_constraintTop_toBottomOf="@+id/code">
 
                     <com.chaos.view.PinView
@@ -179,7 +177,6 @@
                     android:layout_marginStart="4dp"
                     android:text="@string/resend"
                     android:textAlignment="textStart"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"

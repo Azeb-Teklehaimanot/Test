@@ -11,7 +11,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.chaos.view.PinView;
@@ -70,14 +72,20 @@ public class OtpActivity extends AppCompatActivity {
 
     private void requestSmsPermission() {
         // Check if we have the necessary permissions
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS)
-                != PackageManager.PERMISSION_GRANTED ||
-                ContextCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS)
-                        != PackageManager.PERMISSION_GRANTED) {
-            // We don't have the permissions, so request them
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS},
-                    PERMISSION_REQUEST_SMS);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS)
+                    != PackageManager.PERMISSION_GRANTED ||
+                    ContextCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS)
+                            != PackageManager.PERMISSION_GRANTED) {
+                // We don't have the permissions, so request them
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS},
+                        PERMISSION_REQUEST_SMS);
+            }
+        }else {
+            // For Android versions prior to 6.0, permissions are granted at installation time
+            // so no need to request them
+            Log.d(TAG, "Permissions already granted at installation time.");
         }
     }
 
